@@ -4,6 +4,7 @@ import           Aoc                (Problem (..), notImplemented)
 import qualified Day5 (problemA, problemB)
 import           System.Environment (getArgs)
 
+-- Execute the problem to parse and find a solution
 execute :: (Show a, Show b) => Int -> Problem a b -> IO ()
 execute n problem = do
     rawData <- readFile $ show n <> ".dat"
@@ -11,9 +12,11 @@ execute n problem = do
     -- putStrLn $ "Input=" <> show input
     putStrLn $ "Output=" <> show (solve problem input)
 
+-- Write out the usage
 usage::IO ()
 usage = putStrLn "Usage: aoc2020 <1..24>"
 
+-- Main
 main :: IO ()
 main = do
   args <- getArgs

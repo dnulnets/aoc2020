@@ -10,12 +10,12 @@ allSeats = fromList [0..127*8+7]
 seat::[Char]->Int
 seat s = binary (take 7 s)*8 + binary (drop 7 s)
     where 
-        binary = foldl digit 0
+        binary = foldl addDigit 0
             where
-                digit b 'B' = b * 2 + 1
-                digit b 'F' = b * 2
-                digit b 'L' = b * 2
-                digit b 'R' = b * 2 + 1
+                addDigit b 'B' = b * 2 + 1
+                addDigit b 'F' = b * 2
+                addDigit b 'L' = b * 2
+                addDigit b 'R' = b * 2 + 1
 
 -- Second part of day 5
 problemB::Problem [Int] [Int]
