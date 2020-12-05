@@ -1,14 +1,14 @@
 module Main where
 
 import           Aoc                (Problem (..), notImplemented)
-import qualified Day5 (problem)
+import qualified Day5 (problemA, problemB)
 import           System.Environment (getArgs)
 
 execute :: (Show a, Show b) => Int -> Problem a b -> IO ()
 execute n problem = do
     rawData <- readFile $ show n <> ".dat"
     let input = parse problem $ init rawData
-    putStrLn $ "Input=" <> show input
+    -- putStrLn $ "Input=" <> show input
     putStrLn $ "Output=" <> show (solve problem input)
 
 usage::IO ()
@@ -23,7 +23,9 @@ main = do
       "2" -> execute 2 notImplemented
       "3" -> execute 3 notImplemented
       "4" -> execute 4 notImplemented
-      "5" -> execute 5 Day5.problem
+      "5" -> do
+        execute 5 Day5.problemA
+        execute 5 Day5.problemB
       "6" -> execute 6 notImplemented
       "7" -> execute 7 notImplemented
       "8" -> execute 8 notImplemented

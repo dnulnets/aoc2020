@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
-module Day5 (problem) where
+module Day5 (problemA, problemB) where
 
 import           Aoc      (Problem (..))
 import           Data.Set (Set (..), fromList, difference, toList)
@@ -18,7 +18,26 @@ binary = foldl digit 0
         digit b 'L' = b * 2
         digit b 'R' = b * 2 + 1
 
-problem::Problem [Int] [Int]
-problem = Problem {parse = map seat . lines, solve = toList . difference allSeats . fromList }
+-- Return with the list of free sats on the plane
+--freeSeats :: [Int] -> [Int]
+--freeSeats = toList . difference allSeats . fromList
 
+-- Return with a list of the neighbours given a seat
+--neighbours::[Int] -> [Int]
+--neighbours = concatMap neighbour
+--    where
+--        neighbour n = [n-1, n+1]
 
+-- Second part of day 5
+problemB::Problem [Int] [Int]
+problemB = Problem {parse = map seat . lines, solve = findSeat}
+    where
+        findSeat l = toList (difference (fromList (freeSeats l)) (neighbours (freeSeats l)))
+        freeSeats = toList . difference allSeats . fromList
+        neighbours l = fromList $ concatMap neighbour l
+            where
+                neighbour n = [n-1, n+1]
+
+-- First part of day 5
+problemA::Problem [Int] Int
+problemA = Problem {parse = map seat . lines, solve = maximum }
