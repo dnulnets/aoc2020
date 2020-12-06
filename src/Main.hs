@@ -4,6 +4,7 @@ import           Aoc                (Problem (..), notImplemented)
 import qualified Day1 (problemA, problemB)
 import qualified Day2 (problemA, problemB)
 import qualified Day3 (problemA, problemB)
+import qualified Day4 (problemA, problemB)
 import qualified Day5 (problemA, problemB)
 import           System.Environment (getArgs)
 
@@ -34,7 +35,8 @@ main = do
       "3" -> do
         execute 3 Day3.problemA
         execute 3 Day3.problemB
-      "4" -> execute 4 notImplemented
+      "4" -> do
+        execute 4 Day4.problemA
       "5" -> do
         execute 5 Day5.problemA
         execute 5 Day5.problemB
