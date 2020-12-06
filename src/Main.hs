@@ -1,6 +1,7 @@
 module Main where
 
 import           Aoc                (Problem (..), notImplemented)
+import qualified Day1 (problemA, problemB)
 import qualified Day5 (problemA, problemB)
 import           System.Environment (getArgs)
 
@@ -9,7 +10,7 @@ execute :: (Show a, Show b) => Int -> Problem a b -> IO ()
 execute n problem = do
     rawData <- readFile $ show n <> ".dat"
     let input = parse problem $ init rawData
-    -- putStrLn $ "Input=" <> show input
+    putStrLn $ "Input=" <> show input
     putStrLn $ "Output=" <> show (solve problem input)
 
 -- Write out the usage
@@ -22,7 +23,9 @@ main = do
   args <- getArgs
   if not (null args)
     then case head args of
-      "1" -> execute 1 notImplemented
+      "1" -> do
+        execute 1 Day1.problemA
+        execute 1 Day1.problemB
       "2" -> execute 2 notImplemented
       "3" -> execute 3 notImplemented
       "4" -> execute 4 notImplemented
