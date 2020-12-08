@@ -30,3 +30,4 @@ executable aoc2020
     , split
     , cond
     , matrix
+    , parsec

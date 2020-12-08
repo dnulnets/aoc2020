@@ -37,6 +37,7 @@ main = do
         execute 3 Day3.problemB
       "4" -> do
         execute 4 Day4.problemA
+        execute 4 Day4.problemB
       "5" -> do
         execute 5 Day5.problemA
         execute 5 Day5.problemB
