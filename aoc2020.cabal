@@ -22,7 +22,9 @@ executable aoc2020
     Day2,
     Day3,
     Day4,
-    Day5
+    Day5,
+    Day6,
+    Day7
   default-language:    Haskell2010
   build-depends:
     base >= 4.7 && < 5
