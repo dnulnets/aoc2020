@@ -2,7 +2,7 @@
 module Day5 (problemA, problemB) where
 
 import           Aoc      (Problem (..))
-import           Data.Set (Set (..), fromList, difference, toList)
+import           Data.Set (fromList, difference, toList)
 
 -- Seat parser
 seat::[Char]->Int

@@ -24,7 +24,8 @@ executable aoc2020
     Day4,
     Day5,
     Day6,
-    Day7
+    Day7,
+    Day8
   default-language:    Haskell2010
   build-depends:
     base >= 4.7 && < 5
@@ -33,3 +34,4 @@ executable aoc2020
     , cond
     , matrix
     , parsec
+    , vector
